@@ -124,7 +124,9 @@ def svm_cross_validation(X, y):
 
 def train_svm(std_X_train, y_train, std_X_test, y_test, show=False):
     last_time = time.time()
-    model = svm_cross_validation(std_X_train, y_train.ravel())
+    # model = svm_cross_validation(std_X_train, y_train.ravel())
+    model = svm.SVC(kernel='rbf', C=10, gamma=0.001, probability=True)
+    model.fit(std_X_train, y_train)
     middle_time = time.time()
     y_pred = model.predict(std_X_test)
     print("SVM Accuracy: %.2f" % accuracy_score(y_test, y_pred))
@@ -185,12 +187,10 @@ def main():
     std_X_train = ss.fit_transform(X_train)
     std_X_test = ss.fit_transform(X_test)
 
-    # estimator_list = [100, 300, 500]
-
     decision_tree(X_train, y_train, X_test, y_test, show=True)
 
-    # for n in estimator_list:
     random_forest(X_train, y_train, X_test, y_test, show=True)
+
     xgboost(X_train, y_train, X_test, y_test, show=True)
 
     mlp(std_X_train, y_train, std_X_test, y_test, show=True)
