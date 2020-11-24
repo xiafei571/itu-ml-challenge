@@ -87,9 +87,13 @@ def df_combine(train_n_files, train_v_files, train_p_files, test_n_files, test_v
 
 
 def main():
-    # all_n_files = glob.glob(path + "/*.n.csv")
-    # all_v_files = glob.glob(path + "/*.v.csv")
-    # all_p_files = glob.glob(path + "/*.p.csv")
+    # train_n_files = glob.glob(train_path + "*.n.csv")
+    # train_v_files = glob.glob(train_path + "*.v.csv")
+    # test_n_files = glob.glob(train_path + "*.p.csv")
+    # test_n_files = glob.glob(test_path + "*.n.csv")
+    # test_v_files = glob.glob(test_path + "*.v.csv")
+    # test_p_files = glob.glob(test_path + "*.p.csv")
+
     train_n_files = [train_path + x for x in
                      ['20200629.n.csv', '20200630.n.csv', '20200701.n.csv', '20200702.n.csv', '20200703.n.csv',
                       '20200704.n.csv', '20200705.n.csv', '20200706.n.csv']]
