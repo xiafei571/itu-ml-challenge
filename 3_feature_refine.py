@@ -70,6 +70,9 @@ def main():
     print('reading dataset...')
     dataset = pd.read_csv(dataset_path)
     testset = pd.read_csv(testset_path)
+    #delete zero columns
+    dataset = dataset.loc[:,(dataset !=0).any(axis=0)]
+    testset = testset.loc[:,(testset !=0).any(axis=0)]
     print('dataset', dataset.shape)
     print('testset', testset.shape)
     # Segmentation training tests
